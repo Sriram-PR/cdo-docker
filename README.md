@@ -25,18 +25,20 @@ This Docker image provides a ready-to-use environment for climate data analysis 
 
 ## Usage
 
-### Pull from Docker Hub
+## Working with GitHub
+
+If you want to clone this repository and build the Docker image yourself:
 
 ```bash
-docker pull srirampr/cdo-docker:latest
-```
+# Clone the repository
+git clone https://github.com/Sriram-PR/cdo-docker.git
+cd cdo-docker
 
-### Run the Container
+# Build the Docker image
+docker build -t cdo-docker .
 
-To start a container with the current directory mounted as a data volume:
-
-```bash
-docker run -it --rm -v $(pwd):/data srirampr/cdo-docker
+# Run the container
+docker run -it --rm -v $(pwd):/data cdo-docker
 ```
 
 ### Working with Climate Data
@@ -52,22 +54,6 @@ cdo timmean input.nc output.nc
 
 # Example: Use NCO to manipulate NetCDF files
 ncks -v temperature input.nc output.nc
-```
-
-## Working with GitHub
-
-If you want to clone this repository and build the Docker image yourself:
-
-```bash
-# Clone the repository
-git clone https://github.com/Sriram-PR/cdo-docker.git
-cd cdo-docker
-
-# Build the Docker image
-docker build -t cdo-docker .
-
-# Run the container
-docker run -it --rm -v $(pwd):/data cdo-docker
 ```
 
 ### Contributing Workflow
